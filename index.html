@@ -28,8 +28,9 @@ a{color:inherit}
 .sec{min-height:78vh;min-height:78svh;display:flex;flex-direction:column;justify-content:center;padding:12vh clamp(24px,5vw,72px)}
 .sec>*{max-width:32rem}
 .hero{position:relative;min-height:100vh;min-height:100svh}
-.reach{position:absolute;top:28px;right:clamp(24px,5vw,72px);font-size:.95rem;text-decoration:none;border-bottom:1px solid var(--ink);padding-bottom:2px}
-.reach:hover{color:var(--cobalt);border-color:var(--cobalt)}
+.reach{position:absolute;top:28px;right:clamp(24px,5vw,72px);display:flex;gap:24px}
+.reach a{font-size:.95rem;text-decoration:none;border-bottom:1px solid var(--ink);padding-bottom:2px}
+.reach a:hover{color:var(--cobalt);border-color:var(--cobalt)}
 .hero h1{font:300 clamp(2.2rem,4.4vw,3.8rem)/1.05 var(--serif);letter-spacing:-.03em;margin:0 0 22px}
 .hero h1>span{display:block}
 .x{color:var(--cobalt);font-style:italic;padding:0 .04em}
@@ -50,6 +51,17 @@ h3::before{content:"";position:absolute;top:0;left:0;width:2.4rem;height:2px;bac
 
 .sec .st{font:300 clamp(1.7rem,2.7vw,2.3rem)/1.22 var(--serif);letter-spacing:-.022em;margin:0;max-width:20ch}
 .sec .sub{font:300 1.25rem/1.5 var(--serif);color:var(--soft);margin:1.4rem 0 0}
+.wr{list-style:none;margin:0;padding:0;max-width:30rem}
+.wr li{display:flex;justify-content:space-between;align-items:baseline;gap:20px;border-top:1px solid #e3e3e6;border-bottom:1px solid #e3e3e6;padding:22px 0}
+.wr .ti{font:300 clamp(1.5rem,2.4vw,1.9rem)/1.2 var(--serif);letter-spacing:-.02em}
+.wr .cs{display:inline-flex;align-items:center;gap:8px;font-size:.88rem;color:var(--soft);white-space:nowrap}
+.wr .cs::before{content:"";width:.5rem;height:.5rem;border-radius:50%;background:#ff5a1f}
+.sec .tt{font:300 clamp(2.4rem,4.4vw,3.7rem)/1.04 var(--serif);letter-spacing:-.03em;margin:0 0 1.6rem;max-width:16ch}
+.sec .bl{font:400 1.12rem/1.6 var(--sans);color:var(--cobalt);margin:0 0 .9rem;max-width:30rem}
+.sec .bl:last-child{margin-bottom:0}
+.sec .tt a{text-decoration:none}
+#writing .wr{max-width:24rem}
+#writing .ti{font:400 1.12rem/1.5 var(--sans);color:var(--cobalt)}
 @media(max-width:820px){
  body{display:block}
  .stage{position:fixed;left:0;right:0;top:0;height:40vh;height:40svh;z-index:5}
@@ -70,27 +82,33 @@ h3::before{content:"";position:absolute;top:0;left:0;width:2.4rem;height:2px;bac
 
 <main class="story">
   <header class="sec hero">
-    <a class="reach" href="https://bhumika-makwana.github.io/dossier/contact/" target="_blank" rel="noopener">Reach out</a>
     <h1><span>A series of dialogues</span><span>at the intersection of <span style="white-space:nowrap">AI <span class="x">×</span> Atoms</span></span></h1>
     <p>With scientists, technologists, founders, builders, leaders, and visionaries.</p>
   </header>
 
   <section class="sec">
-    <h2 style="margin-bottom:0">Intelligence is moving from bits to atoms.</h2>
-    <p class="sub">Software scaled it.</p>
+    <h2 class="tt">Intelligence is moving from bits to atoms.</h2>
+    <p class="bl">Software scaled it.</p>
   </section>
 
-  <section class="sec"><p class="st">The physical world is where it compounds: medicine, materials, energy, manufacturing.</p></section>
+  <section class="sec">
+    <h2 class="tt">Models that sense, design and act close the loop.</h2>
+    <p class="bl">Each turn makes the next faster.</p>
+  </section>
 
-  <section class="sec"><p class="st">Models that sense, design and act close the loop.</p></section>
+  <section class="sec">
+    <h2 class="tt">Our mission is to learn from the people building it.</h2>
+    <p class="bl">Through dialogues, with the people closing the loop.</p>
+  </section>
 
-  <section class="sec say"><p>Each turn makes the next faster.</p></section>
+  <section class="sec" id="writing">
+    <h2 class="tt"><a href="writing.html">Writing</a></h2>
+    <ul class="wr"><li><span class="ti">RNA-seq unlock</span><span class="cs">Coming soon</span></li></ul>
+  </section>
 
   <footer class="sec end">
-    <p>I'm drawn to interesting technical challenges, ambitious ideas, and teams that enjoy figuring things out together.</p>
     <div class="links">
       <a class="btn" href="https://bhumika-makwana.github.io/dossier/contact/" target="_blank" rel="noopener">Reach out</a>
-      <a class="txt" href="https://docs.google.com/document/d/e/2PACX-1vToplFq7T5RACG3XcE1S1mlFqTuVXQZNeFhp8ON8J1rSR7msk-OcKPjHJu5odvv1JE9R4G7_2jwxayH/pub" target="_blank" rel="noopener">Read the full thesis</a>
     </div>
   </footer>
 </main>
@@ -147,7 +165,7 @@ function frame(ts){raf=0;var d=tg-cur;cur=still||Math.abs(d)<.002?tg:cur+d*.1;va
  if(!still||cur!==tg||lastF<0)raf=requestAnimationFrame(frame)}
 function go(){if(!raf)raf=requestAnimationFrame(frame)}
 
-var secs=[].slice.call(document.querySelectorAll('.sec')),KS=[0,0,1,2,3,3.6,4,4];
+var secs=[].slice.call(document.querySelectorAll('.sec')),KS=[0,.6,1.5,2.5,3.4,4];
 function target(){if(scrollY+innerHeight>=document.documentElement.scrollHeight-6)return 4;var y=scrollY+(mob.matches?innerHeight*.7:innerHeight*.5),c=secs.map(function(e){return e.offsetTop+e.offsetHeight/2});
  if(y<=c[0])return KS[0];for(var i=0;i<c.length-1;i++)if(y<c[i+1])return KS[i]+(KS[i+1]-KS[i])*(y-c[i])/(c[i+1]-c[i]);return KS[KS.length-1]}
 function kick(){tg=target();go()}
