@@ -19,12 +19,6 @@ a{color:inherit}
 .stage{position:sticky;top:0;align-self:start;height:100vh;height:100svh;background:var(--paper);overflow:hidden}
 .stage canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
 .wm{position:absolute;z-index:2;top:max(26px,env(safe-area-inset-top));left:clamp(20px,3vw,40px);color:var(--ink);font:italic 400 1.5rem/1 var(--serif)}
-.lg{position:absolute;z-index:2;left:clamp(20px,3vw,40px);bottom:26px;display:flex;gap:20px;font-size:.82rem;color:var(--soft)}
-.lg i{display:inline-block;width:.7rem;height:.7rem;margin-right:7px;vertical-align:-1px}
-.lg .a{width:.8rem;height:.8rem;border:1.5px solid var(--shu);border-radius:50%;box-shadow:inset 0 0 0 2.5px var(--paper),inset 0 0 0 4px var(--shu);vertical-align:-1px}
-.lg .b{width:.7rem;height:.75rem;border:2px solid var(--cobalt);border-bottom:0}
-.lg .c{background:linear-gradient(90deg,var(--shu),var(--cobalt));width:1.1rem;height:2px;vertical-align:4px}
-.lg .m{opacity:0;transition:opacity .3s}
 
 /* the story */
 .story{position:relative;min-width:0}
@@ -58,7 +52,10 @@ h2{font:400 clamp(1.5rem,2.6vw,1.95rem)/1.22 var(--serif);letter-spacing:-.02em;
 </head>
 <body>
 
-<aside class="stage" aria-hidden="true"><canvas id="art"></canvas><b class="wm">RareEarth</b><div class="lg"><span><i class="a"></i>atoms</span><span><i class="b"></i>bits</span><span class="m" id="lgm"><i class="c"></i>merged</span></div></aside>
+<aside class="stage" aria-hidden="true">
+  <canvas id="art"></canvas>
+  <div class="wm">RareEarth</div>
+</aside>
 
 <main class="story">
   <header class="sec hero">
@@ -98,7 +95,7 @@ function vn(x,y){var i=Math.floor(x),j=Math.floor(y),fx=x-i,fy=y-j;fx=fx*fx*fx*(
 function fbm(x,y,o){var s=0,a=.5;for(var i=0;i<o;i++){s+=a*vn(x,y);x=x*2.03+17.1;y=y*2.03+9.3;a*=.5}return s}
 function mix(a,b,t){return[a[0]+(b[0]-a[0])*t,a[1]+(b[1]-a[1])*t,a[2]+(b[2]-a[2])*t]}
 
-var cv=document.getElementById('art'),x=cv.getContext('2d'),lgm=document.getElementById('lgm'),
+var cv=document.getElementById('art'),x=cv.getContext('2d'),
     W=0,Hh=0,dpr=1,pat=null,P=[],GX=0,GY=0,R=0,S=0,cur=0,tg=0,raf=0,INK=[],GL=[],GLW=2;
 var PAPER='#eee9df',V=[200,68,46],C=[34,53,126],SUMI=[30,28,26],M=[104,48,124];
 var SEED=7,DENSITY=.55;
@@ -200,7 +197,6 @@ function frame(ts){raf=0;if(!W)return;var d=tg-cur;cur=still||Math.abs(d)<.002?t
   x.fillStyle='rgba('+(col[0]|0)+','+(col[1]|0)+','+(col[2]|0)+','+al.toFixed(3)+')';
   x.beginPath();shape(px,py,Math.max(.5,sz),rd);x.fill()}
  x.fillStyle=pat;x.fillRect(0,0,W,Hh);
- lgm.style.opacity=g.toFixed(2);
  if(!still||cur!==tg)raf=requestAnimationFrame(frame)}
 function go(){if(!raf)raf=requestAnimationFrame(frame)}
 
