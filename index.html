@@ -1,5 +1,9 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Rarearth</title>
-<meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Instrument+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400&display=swap">
@@ -21,7 +25,7 @@
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--paper:#121417;--ink:#E3E5DF;--ink-2:#9DA1A6;--rule:#2F3338;--stain:#C4A8FF;--stain-wash:rgba(176,140,255,.2);--glow-a:#3CF2C4;--glow-b:#62A8FF;color-scheme:dark}}
 :root[data-theme="dark"]{--paper:#121417;--ink:#E3E5DF;--ink-2:#9DA1A6;--rule:#2F3338;--stain:#C4A8FF;--stain-wash:rgba(176,140,255,.2);--glow-a:#3CF2C4;--glow-b:#62A8FF;color-scheme:dark}
 *{box-sizing:border-box}
-body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
 .wrap{max-width:1280px;margin:0 auto;padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px));padding-block:20px 32px}
 .mono{font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2)}
 .top{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;padding-bottom:12px;border-bottom:1px solid var(--ink)}
@@ -137,11 +141,64 @@ figure{padding-block:0}
 .page{gap:8px;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr)}
 
 .intro-text h1 em{color:var(--stain);padding:0 .12em;margin:0 -.04em;background:linear-gradient(to top,var(--stain-wash) 0 42%,transparent 42%);-webkit-box-decoration-break:clone;box-decoration-break:clone}
+
+.top{align-items:center}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.contact{border-top:0;display:flex;align-items:center;justify-content:center;gap:24px;flex-wrap:wrap;padding-block:48px 24px}
+.contact h2{font-family:var(--f-display);font-weight:400;font-size:clamp(28px,3.4vw,40px);margin:0}
+.social{display:flex;gap:16px;align-items:center}
+.social a{display:block;width:36px;height:36px;border-radius:5px;transition:transform .15s}
+.social a:hover{transform:translateY(-2px)}
+.social svg{width:36px;height:36px;display:block}
+.top-contact{font-size:14px;color:var(--ink-2);text-decoration:none}
+.top-contact:hover{color:var(--ink)}
+.contact{border-top:0;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:48px;align-items:center;padding-block:56px 24px}
+.contact-logo{display:grid;justify-items:center;gap:16px}
+.contact-logo img{width:120px;height:120px;display:block}
+.wordmark{font-family:var(--f-display);font-size:22px;letter-spacing:.42em;text-transform:uppercase;margin-right:-.42em}
+.contact-body{display:grid;gap:14px}
+.contact-body h2{font-family:var(--f-display);font-weight:400;font-size:clamp(32px,4vw,48px);line-height:1.05;margin:0}
+.contact-body p{margin:0;color:var(--ink-2);font-size:17px;max-width:44ch}
+.links{list-style:none;margin:8px 0 0;padding:0;display:grid;gap:12px;max-width:480px}
+.link{display:flex;align-items:center;gap:14px;padding:12px 14px;border:1px solid var(--rule);border-radius:4px;text-decoration:none;color:var(--ink);min-width:0}
+a.link:hover{border-color:var(--stain);color:var(--ink)}
+a.link:hover .ico{color:var(--stain)}
+.ico{width:26px;height:26px;flex:none;color:var(--ink)}
+.link span{display:grid;min-width:0;flex:1}
+.link strong{font-weight:500;font-size:15px}
+.link small{font-size:14px;color:var(--ink-2);overflow-wrap:anywhere;user-select:all}
+.copy{font:500 13px var(--f-body);color:var(--ink);background:transparent;border:1px solid var(--rule);border-radius:3px;padding:6px 12px;cursor:pointer}
+.copy:hover{border-color:var(--stain);color:var(--stain)}
+@media (max-width:760px){.contact{grid-template-columns:1fr;gap:28px}.contact-logo{justify-items:start}}
+
+.wrap>.contact{display:flex;grid-template-columns:none;justify-content:center;align-items:center;gap:24px;flex-wrap:wrap;padding-block:48px 24px;border-top:0}
+
+.top{display:flex;align-items:center;justify-content:space-between}
+.menu{display:flex;gap:24px;align-items:center}
+.menu a{text-decoration:none;font-size:15px;color:var(--ink-2)}
+.menu a:hover{color:var(--ink)}
+@media (max-width:420px){.menu{gap:16px}.menu a{font-size:14px}}
+
+.wrap>.contact{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:56px;align-items:start;justify-content:stretch;padding-block:56px 24px}
+.contact-intro{display:grid;gap:16px;align-content:start}
+.contact-intro p{margin:0;font-size:17px;color:var(--ink-2);max-width:38ch}
+.cform{display:grid;gap:16px;background:transparent;border:0;padding:0}
+.cform select{font:16px var(--f-body);color:var(--ink);background:var(--paper);border:1px solid var(--rule);border-radius:2px;padding:10px 12px;width:100%}
+.cform select:focus{outline:2px solid var(--stain);outline-offset:0;border-color:var(--stain)}
+.cform .btn{justify-self:start}
+@media (max-width:820px){.wrap>.contact{grid-template-columns:1fr;gap:28px}}
 </style>
 
-<div class="wrap">
+</head>
+<body>
+<div class="wrap" id="top">
   <div class="top">
     <span class="brand">Rarearth</span>
+    <nav class="menu" aria-label="Main">
+      <a href="#" id="nav-videos">Videos</a>
+      <a href="#" id="nav-events">Events</a>
+      <a href="#contact">Contact us</a>
+    </nav>
   </div>
   <div class="page">
     <figure>
@@ -174,6 +231,39 @@ figure{padding-block:0}
         <p class="bio">Take in what others learned the hard way, from the bench to the boardroom.</p>
       </article>
     </div>
+
+  <section class="contact" id="contact">
+    <div class="contact-intro">
+      <h2>Contact us</h2>
+      <p>Want to join a dialogue, suggest a guest or work with us? Tell us a little about yourself.</p>
+        <div class="social">
+          <a href="https://www.linkedin.com/in/bhumika-mak/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="1.5" y="1.5" width="21" height="21" rx="3.5" fill="#0A66C2"/><rect x="5.4" y="9.4" width="2.9" height="9" fill="#fff"/><circle cx="6.85" cy="6.25" r="1.75" fill="#fff"/><path d="M10.6 9.4h2.8v1.3c.5-.9 1.6-1.6 3.1-1.6 2.3 0 3.2 1.4 3.2 4v5.3h-2.9v-4.6c0-1.2-.3-2.1-1.5-2.1s-1.8.9-1.8 2.1v4.6h-2.9z" fill="#fff"/></svg></a>
+          <a href="mailto:bhumika@inrarearth.com" aria-label="Email bhumika@inrarearth.com" title="bhumika@inrarearth.com"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="1.5" y="4" width="21" height="16" rx="3" fill="#EA4335"/><path d="M3.5 6.5l8.5 6.4 8.5-6.4" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+    </div>
+    <form id="contact-form" class="cform" novalidate>
+      <div class="row">
+        <label for="c-name">Name<input id="c-name" name="name" autocomplete="name" required></label>
+        <label for="c-email">Email<input id="c-email" name="email" type="email" autocomplete="email" required></label>
+      </div>
+      <div class="row">
+        <label for="c-org"><span>Organisation <span class="hint">(optional)</span></span><input id="c-org" name="org" autocomplete="organization"></label>
+        <label for="c-reason">I'd like to
+          <select id="c-reason" name="reason">
+            <option>Join a dialogue as a guest</option>
+            <option>Suggest a guest</option>
+            <option>Partner or sponsor</option>
+            <option>Something else</option>
+          </select>
+        </label>
+      </div>
+      <label for="c-msg">Message<textarea id="c-msg" name="message" rows="4" required></textarea></label>
+      <div class="form-foot">
+        <button class="btn" type="submit">Send</button>
+        <span class="status" id="c-status" role="status"></span>
+      </div>
+    </form>
+  </section>
 </div>
 
 <script>
@@ -413,5 +503,19 @@ figure{padding-block:0}
   matchMedia('(prefers-color-scheme: dark)').addEventListener('change',draw);
   new MutationObserver(draw).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});
 
+
+
+  const cf=document.getElementById('contact-form'),cs=document.getElementById('c-status');
+  if(cf)cf.addEventListener('submit',e=>{e.preventDefault();
+    const v=n=>cf.elements[n].value.trim(),name=v('name'),email=v('email'),org=v('org'),reason=v('reason'),msg=v('message');
+    if(!name||!email||!msg){cs.className='status';cs.textContent='Add your name, email and a message to send.';return;}
+    if(!/^\S+@\S+\.\S+$/.test(email)){cs.className='status';cs.textContent='That email looks incomplete. Check it and try again.';return;}
+    const subject='Rarearth: '+reason+' ('+name+')';
+    const body=['Name: '+name,'Email: '+email,org?'Organisation: '+org:'','Interest: '+reason,'',msg].filter((l,i)=>l!==''||i===4).join('\n');
+    const url='mailto:bhumika@inrarearth.com?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
+    cs.className='status ok';cs.textContent='Your email app should open with the message ready. Press send there to reach us.';
+    const a=document.createElement('a');a.href=url;a.style.display='none';document.body.appendChild(a);a.click();a.remove();});
 })();
 </script>
+</body>
+</html>
