@@ -246,7 +246,19 @@ canvas {
     color: #111111 !important;
   }
 }
+@media (max-width: 600px) {
+  #plate {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+  }
 
+  #plate canvas {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+}
 </style>
 
 </head>
