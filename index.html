@@ -187,6 +187,66 @@ a.link:hover .ico{color:var(--stain)}
 .cform select:focus{outline:2px solid var(--stain);outline-offset:0;border-color:var(--stain)}
 .cform .btn{justify-self:start}
 @media (max-width:820px){.wrap>.contact{grid-template-columns:1fr;gap:28px}}
+
+/* FORCE LIGHT MODE — WHITE ONLY */
+:root {
+  color-scheme: light !important;
+
+  --paper: #FFFFFF !important;
+  --ink: #111111 !important;
+  --ink-2: #555555 !important;
+  --rule: #DDDDDD !important;
+  --stain: #6A35E0;
+  --stain-wash: rgba(106, 53, 224, 0.10);
+  --glow-a: #0E9F86;
+  --glow-b: #2C63E6;
+}
+
+html,
+body {
+  background: #FFFFFF !important;
+  color: #111111 !important;
+  color-scheme: light !important;
+  min-height: 100%;
+}
+
+body,
+.wrap,
+main,
+section,
+header,
+footer {
+  background-color: #FFFFFF !important;
+  color: #111111;
+}
+
+p,
+h1, h2, h3, h4,
+span,
+a,
+label,
+li {
+  color: inherit;
+}
+
+canvas {
+  background-color: #FFFFFF !important;
+}
+
+/* Prevent mobile devices from automatically switching to dark mode */
+@media (prefers-color-scheme: dark) {
+  html,
+  body,
+  .wrap,
+  main,
+  section,
+  header,
+  footer {
+    background-color: #FFFFFF !important;
+    color: #111111 !important;
+  }
+}
+
 </style>
 
 </head>
