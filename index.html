@@ -1,3 +1,4 @@
+Rarearth · HTML
 <!doctype html>
 <html lang="en">
 <head>
@@ -49,9 +50,14 @@ a{color:inherit}
 .tt{font-family:var(--f-display);font-weight:400;font-size:clamp(34px,4vw,54px);line-height:1.06;letter-spacing:-.01em;margin:0 0 24px;max-width:16ch;text-wrap:balance}
 .bl{font-size:18px;line-height:1.55;color:var(--stain);margin:0}
  
-.videos{padding:10vh clamp(24px,5vw,72px) 4vh 0;display:grid;gap:28px;scroll-margin-top:96px}
+.vpage{position:relative;z-index:1;min-height:100vh;min-height:100svh;padding:clamp(130px,18vh,180px) max(clamp(24px,5vw,72px),env(safe-area-inset-right,0px)) 12vh max(clamp(24px,5vw,72px),env(safe-area-inset-left,0px))}
+.vpage[hidden]{display:none}
+body.on-videos .stage,body.on-videos .story{display:none}
+body.on-videos #nav-videos{color:var(--ink);text-decoration:underline;text-underline-offset:5px}
+.videos{display:grid;gap:28px;max-width:44rem;margin:0 auto}
+.vintro{margin:0;font-size:17px;color:var(--ink-2);max-width:42ch}
 .videos>h2{font-family:var(--f-display);font-weight:400;font-size:clamp(32px,3.6vw,46px);line-height:1.05;margin:0;filter:url(#press);text-shadow:0 0 14px var(--paper),0 0 6px var(--paper)}
-.vlist{list-style:none;margin:0;padding:0;display:grid;gap:0;max-width:36rem}
+.vlist{list-style:none;margin:0;padding:0;display:grid;gap:0}
 .vitem{display:grid;gap:10px;padding:22px 0;border-top:1px solid var(--rule)}
 .vitem:last-child{border-bottom:1px solid var(--rule)}
 .vtitle{font-family:var(--f-display);font-weight:400;font-size:clamp(24px,2.4vw,30px);line-height:1.15;margin:0;text-wrap:balance;text-shadow:0 0 10px var(--paper),0 0 4px var(--paper)}
@@ -92,7 +98,7 @@ textarea{min-height:96px;resize:vertical}
   .sec{min-height:64svh;padding:40px max(20px,env(safe-area-inset-right,0px)) 40px max(20px,env(safe-area-inset-left,0px))}
   .hero{min-height:48svh;justify-content:flex-start}
   .contact{padding:56px 20px 64px}
-  .videos{padding:56px 20px 8px;scroll-margin-top:46svh}
+  .vpage{padding-top:120px;padding-left:20px;padding-right:20px}
 }
 @media (max-width:520px){.row{grid-template-columns:1fr}}
 @keyframes rise{from{opacity:.001;transform:translateY(12px)}to{opacity:1;transform:none}}
@@ -141,22 +147,6 @@ textarea{min-height:96px;resize:vertical}
     <p class="bl">Through dialogues, with the people closing the loop.</p>
   </section>
  
-  <section class="videos" id="videos" aria-labelledby="videos-h">
-    <h2 id="videos-h">Videos</h2>
-    <ul class="vlist">
-      <li class="vitem">
-        <span class="mono">Dialogue 01</span>
-        <h3 class="vtitle">Making the Epigenome Actionable</h3>
-        <p class="vguest">Savannah Dearden, Co-founder &amp; CTO of Nurture</p>
-        <div class="vlinks">
-          <!-- Replace the two href values below with the episode links -->
-          <a href="https://open.spotify.com/episode/4lk5BOHwcbGhlndvU1x36J?si=Cq58ejyzRlOxebpYGAiCzw" target="_blank" rel="noopener" aria-label="Listen on Spotify: Making the Epigenome Actionable"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#1DB954"/><path d="M6.6 9.3c3.6-1.1 7.7-.8 10.9 1M7.1 12.3c3-.9 6.3-.6 8.9.9M7.6 15.1c2.4-.6 4.9-.4 7 .7" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/></svg>Spotify</a>
-          <a href="https://youtu.be/iPXBsbzRHiM" target="_blank" rel="noopener" aria-label="Watch on YouTube: Making the Epigenome Actionable"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="1" y="4.5" width="22" height="15" rx="4.5" fill="#FF0000"/><path d="M10 8.8v6.4l5.4-3.2z" fill="#fff"/></svg>YouTube</a>
-        </div>
-      </li>
-    </ul>
-  </section>
- 
   <section class="contact" id="contact">
     <div class="contact-intro">
       <h2>Contact us</h2>
@@ -188,6 +178,25 @@ textarea{min-height:96px;resize:vertical}
         <span class="status" id="c-status" role="status"></span>
       </div>
     </form>
+  </section>
+</main>
+ 
+<main class="vpage" id="videos" hidden>
+  <section class="videos" aria-labelledby="videos-h">
+    <h2 id="videos-h">Videos</h2>
+    <p class="vintro">Recorded dialogues at the intersection of AI and atoms.</p>
+    <ul class="vlist">
+      <li class="vitem">
+        <span class="mono">Dialogue 01</span>
+        <h3 class="vtitle">Making the Epigenome Actionable</h3>
+        <p class="vguest">Savannah Dearden, Co-founder &amp; CTO of Nurture</p>
+        <div class="vlinks">
+          <!-- Replace the two href values below with the episode links -->
+          <a href="https://open.spotify.com/" target="_blank" rel="noopener" aria-label="Listen on Spotify: Making the Epigenome Actionable"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#1DB954"/><path d="M6.6 9.3c3.6-1.1 7.7-.8 10.9 1M7.1 12.3c3-.9 6.3-.6 8.9.9M7.6 15.1c2.4-.6 4.9-.4 7 .7" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/></svg>Spotify</a>
+          <a href="https://www.youtube.com/" target="_blank" rel="noopener" aria-label="Watch on YouTube: Making the Epigenome Actionable"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="1" y="4.5" width="22" height="15" rx="4.5" fill="#FF0000"/><path d="M10 8.8v6.4l5.4-3.2z" fill="#fff"/></svg>YouTube</a>
+        </div>
+      </li>
+    </ul>
   </section>
 </main>
  
@@ -375,7 +384,15 @@ textarea{min-height:96px;resize:vertical}
   let lw=0,lh=0;function init(){build();lw=cv.clientWidth;lh=cv.clientHeight;cur=tg=target();go();}
   addEventListener('scroll',kick,{passive:true});
   let rt;addEventListener('resize',()=>{clearTimeout(rt);rt=setTimeout(()=>{cv.clientWidth!==lw||Math.abs(cv.clientHeight-lh)>80?init():kick();},150);});
-  init();if(document.fonts&&document.fonts.ready)document.fonts.ready.then(kick);
+  // pages: #videos shows the videos page; anything else shows the home page
+  const vp=document.getElementById('videos');let onV=false;
+  function route(){const v=location.hash==='#videos';
+    if(v){document.body.classList.add('on-videos');vp.hidden=false;onV=true;scrollTo(0,0);document.title='Videos · Rarearth';return;}
+    vp.hidden=true;document.body.classList.remove('on-videos');document.title='Rarearth';
+    if(onV){onV=false;init();const el=location.hash&&document.querySelector(location.hash);el&&el.id!=='top'?el.scrollIntoView():scrollTo(0,0);}}
+  addEventListener('hashchange',route);
+  if(location.hash==='#videos')route();else init();
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(()=>{if(!onV)kick();});
  
   const cf=document.getElementById('contact-form'),cs=document.getElementById('c-status');
   cf.addEventListener('submit',e=>{e.preventDefault();
