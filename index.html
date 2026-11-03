@@ -128,7 +128,7 @@ textarea{min-height:96px;resize:vertical}
 <div class="bar">
   <a class="brand" href="#top">Rarearth</a>
   <nav class="menu" aria-label="Main">
-    <a href="#videos" id="nav-videos">Videos</a>
+    <a href="#videos" id="nav-videos">Podcast</a>
     <a href="#" id="nav-events">Events</a>
     <a href="#contact">Contact us</a>
   </nav>
@@ -193,7 +193,7 @@ textarea{min-height:96px;resize:vertical}
 </main>
  
 <main class="vpage" id="videos" hidden>
-  <section class="videos" aria-label="Videos">
+  <section class="videos" aria-label="Podcast">
     <ul class="vlist">
       <li class="vitem">
         <a class="vart" href="https://youtu.be/iPXBsbzRHiM" target="_blank" rel="noopener" aria-label="Watch Making the Epigenome Actionable on YouTube">
@@ -405,7 +405,7 @@ textarea{min-height:96px;resize:vertical}
   // pages: #videos shows the videos page; anything else shows the home page
   const vp=document.getElementById('videos');let onV=false;
   function route(){const v=location.hash==='#videos';
-    if(v){document.body.classList.add('on-videos');vp.hidden=false;onV=true;scrollTo(0,0);document.title='Videos · Rarearth';return;}
+    if(v){document.body.classList.add('on-videos');vp.hidden=false;onV=true;scrollTo(0,0);document.title='Podcast · Rarearth';return;}
     vp.hidden=true;document.body.classList.remove('on-videos');document.title='Rarearth';
     if(onV){onV=false;init();const el=location.hash&&document.querySelector(location.hash);el&&el.id!=='top'?el.scrollIntoView():scrollTo(0,0);}}
   addEventListener('hashchange',route);
