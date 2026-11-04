@@ -115,7 +115,6 @@ body.on-essay #nav-essay{color:var(--ink);text-decoration:underline;text-underli
 .erail button.on{color:var(--stain)}
 .erail button.on::before{content:"";position:absolute;left:-15px;top:4px;bottom:4px;width:2px;background:var(--stain)}
 .etext p{margin:0 0 1.1em;font-size:18px;line-height:1.68}
-.etext em{font-style:normal;color:var(--stain)}
 .lede::first-letter{font-family:var(--f-display);float:left;font-size:4.2em;line-height:.8;padding:.08em .08em 0 0;color:var(--stain)}
 .scale{padding-top:clamp(36px,6vh,60px);margin-top:clamp(28px,4vh,44px);border-top:1px solid var(--rule);scroll-margin-top:130px}
 .mag{font-family:var(--f-mono);font-size:13px !important;letter-spacing:.08em;color:var(--stain);margin:0 0 10px !important}
@@ -127,8 +126,17 @@ body.on-essay #nav-essay{color:var(--ink);text-decoration:underline;text-underli
 .ladder thead th{font-family:var(--f-mono);font-weight:400;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2)}
 .ladder tbody th{font-family:var(--f-display);font-weight:400;font-size:18px}
 .ladder td:last-child{color:var(--stain)}
+.etext strong{font-weight:500;color:var(--ink)}
+.bets{margin:8px 0 28px;padding:0;list-style:none;counter-reset:b;display:grid;gap:18px}
+.bets li{counter-increment:b;position:relative;padding-left:2.4rem;font-size:18px;line-height:1.62}
+.bets li::before{content:counter(b,decimal-leading-zero);position:absolute;left:0;top:8px;font-family:var(--f-mono);font-size:12px;color:var(--stain)}
+.bets strong{display:block;font-family:var(--f-display);font-weight:400;font-size:22px;line-height:1.2;margin-bottom:4px}
+.etext p em{font-style:italic;color:inherit}
+.take{border-left:2px solid var(--stain);padding:4px 0 4px 16px;margin-top:1.4em !important;color:var(--ink)}
+.take .mono{display:block;color:var(--stain);margin-bottom:4px;font-size:11px}
 .sign{margin-top:2.4em !important;font-size:12px !important}
 @media (max-width:820px){
+  .bets li{font-size:17px}
   .epage{padding:120px 20px 64px}
   .ehead{margin-left:0}
   .ebody{grid-template-columns:minmax(0,1fr)}
@@ -280,95 +288,71 @@ body.on-essay #nav-essay{color:var(--ink);text-decoration:underline;text-underli
           <li><button type="button" data-to="s-cell"><span>10<sup>&minus;5</sup></span>Cell</button></li>
           <li><button type="button" data-to="s-dev"><span>10<sup>&minus;2</sup></span>Device</button></li>
           <li><button type="button" data-to="s-body"><span>10<sup>0</sup></span>Body</button></li>
-          <li><button type="button" data-to="s-site"><span>10<sup>3</sup></span>Site</button></li>
+          <li><button type="button" data-to="s-city"><span>10<sup>3</sup></span>City</button></li>
           <li><button type="button" data-to="s-planet"><span>10<sup>7</sup></span>Planet</button></li>
-          <li><button type="button" data-to="s-pattern"><span>&#8597;</span>The pattern</button></li>
+          <li><button type="button" data-to="s-end"><span>&rarr;</span>Conclusion</button></li>
         </ol>
       </nav>
 
       <div class="etext">
         <p class="lede">In 1977 Charles and Ray Eames made a nine-minute film that begins with a couple on a picnic blanket by the lake in Chicago. Every ten seconds the camera pulls back by a factor of ten, out past the city, the planet and the galaxy, and then dives back in through the man's hand, past skin and cells, into the nucleus of a single carbon atom.</p>
         <p>The film is usually remembered for its sense of size. Its deeper lesson is that every jump changes the rules. Gravity holds galaxies together and does almost nothing to a protein. Electromagnetism binds molecules and is irrelevant to the orbit of the Moon. Inside a cell, things move by crowding, diffusion and noise; at the size of a person, by friction and inertia. Each power of ten has its own physics, and with it its own instruments, its own clock and its own idea of what a measurement is.</p>
-        <p>Software never had to watch the zoom. A bit is a bit, whether it describes a protein or a port. That is exactly why software scaled: one abstraction, one cost curve, indifferent to size. And it is why &ldquo;bits to atoms&rdquo; is harder than the phrase suggests. When intelligence leaves the screen, it does not arrive in &ldquo;the physical world&rdquo; in general. It lands at a particular scale, and has to learn that scale's rules.</p>
-        <p>So instead of one frontier, it helps to see several. At each rung below I ask the same three questions that run through these dialogues: what can we <em>sense</em>, what can we <em>design</em>, and what can we <em>act</em> on? And how long does it take for that loop to close once?</p>
+        <p>Software never had to deal with this. Code works the same way whether it is moving a photo or a payment, and that is exactly why digital businesses grew so fast. But once bits start touching atoms, scale matters again. What is hard, what is slow and where the value sits all change from one power of ten to the next.</p>
 
         <section class="scale" id="s-atom">
-          <p class="mag">10<sup>&minus;10</sup> m</p>
-          <h2>The atom: where design outruns action</h2>
-          <p>At the scale of atoms the governing equations have been known for a century. The physicist Paul Dirac observed in 1929 that the laws underlying all of chemistry were understood, and that the only trouble was that the equations were far too complicated to solve. That remains the whole story of this rung. Exact quantum calculations explode in cost with every electron you add, so chemists have relied on approximations that are still slow enough to make a single material a research project.</p>
-          <p>This is where bits help first. Machine-learned models trained on quantum calculations can now estimate the forces between atoms many orders of magnitude faster than the methods they learned from. A model can screen more candidate crystals, catalysts and battery electrodes in a week than a lab could make in a career.</p>
-          <p>And there is the catch. Designing an atomic arrangement is now cheap. Making one is not. Synthesis is still an art of furnaces, solvents and patience, and most predicted materials have never been made. The response is the self-driving lab: robots that weigh powders, fire samples, read the result with X-ray diffraction and let a model pick the next experiment. At this scale the loop is measured in hours to days, and the scarce resource is not ideas but hands.</p>
+          <p class="mag">10<sup>&minus;10</sup> m &middot; The atom</p>
+          <h2>Design is cheap. Making is not.</h2>
+          <p>At the smallest scale, we already know the rules. The equations of quantum physics have been known for a century; they are simply too complex to solve directly. AI now gives fast, good-enough answers, so new materials, batteries and catalysts can be designed on a computer far faster than before. But a lab can still only make a handful of them.</p>
+          <p class="take"><span class="mono">Thesis</span> At the atomic scale, bits have made design cheap, but making things is still slow. The value goes to whoever can actually build and test what the computer imagines.</p>
         </section>
 
         <section class="scale" id="s-mol">
-          <p class="mag">10<sup>&minus;9</sup> m</p>
-          <h2>The molecule: shape is not function</h2>
-          <p>Move up one rung and the atoms become proteins, drugs and enzymes. The new rule is heat. At body temperature every molecule is jittering, flexing and colliding, so a protein is less a fixed shape than a crowd of shapes it moves between.</p>
-          <p>Sensing here was slow and heroic for decades: crystallography, then cryo-electron microscopy, each structure deposited in a shared public database. That patient archive is what made AlphaFold possible, and in 2024 the Nobel Prize in Chemistry went to the people who predicted protein structures from sequence and the people who began designing new ones. Generative models now propose binders and enzymes that have never existed.</p>
-          <p>The actuator at this scale is surprisingly mundane: you order DNA. A design becomes matter when a synthesizer strings the bases together and a cell builds the protein. The bottleneck has moved from <em>what does it look like</em> to <em>what does it do, where, and to whom</em>. A molecule that binds perfectly in a test tube can do nothing, or harm, inside a body. The loop takes weeks, and its hardest step is the assay.</p>
+          <p class="mag">10<sup>&minus;9</sup> m &middot; The molecule</p>
+          <h2>Shape is not function.</h2>
+          <p>One step up are molecules: proteins, drugs and enzymes. AI can now predict the shape of a protein and design new ones, work that won the 2024 Nobel Prize in Chemistry. But a molecule that looks perfect on screen may do nothing useful inside the body. Knowing its shape doesn't tell you what it does.</p>
+          <p class="take"><span class="mono">Thesis</span> At the molecular scale, bits can tell us what a molecule looks like, but only atoms can tell us what it does. The value goes to those who prove it works in the real world.</p>
         </section>
 
         <section class="scale" id="s-cell">
-          <p class="mag">10<sup>&minus;5</sup> m</p>
-          <h2>The cell: we learn it by stopping it</h2>
-          <p>A cell is a few thousand times bigger than a protein and incomparably more complicated, because it is not a structure but a process. Every cell in your body carries nearly the same genome, yet a neuron is not a liver cell. The difference is regulation: which genes are open, which are silenced, and the chemical marks that remember those choices. The epigenome is, in effect, the cell's memory of what it has been told to become.</p>
-          <p>We can now read individual cells in remarkable detail, sequencing what each one is expressing and imaging where its parts sit. That flood of measurement is why people are starting to build &ldquo;virtual cells,&rdquo; models that predict how a cell will respond when a gene is switched off or a drug arrives. On the action side, gene editing and cell programming let us write back.</p>
-          <p>The peculiar constraint of this rung is that most of our best measurements destroy what they measure. We learn a cell by stopping it, and so we see a living process as a stack of snapshots. Closing the loop takes weeks or months, and the frontier is anything that lets us watch the same cell change over time.</p>
+          <p class="mag">10<sup>&minus;5</sup> m &middot; The cell</p>
+          <h2>Biology is becoming programmable.</h2>
+          <p>A cell is not a fixed structure; it is a living process. Every cell in your body carries the same DNA, yet a skin cell is nothing like a brain cell. The difference is which genes are switched on or off. We can now read this cell by cell, and with gene editing we can begin to rewrite it. But we still mostly study cells by stopping them, so we see snapshots rather than the whole story.</p>
+          <p class="take"><span class="mono">Thesis</span> At the cellular scale, bits are turning biology from something we observe into something we can program. The value goes to whoever turns that data into a decision that changes a patient's life.</p>
         </section>
 
         <section class="scale" id="s-dev">
-          <p class="mag">10<sup>&minus;2</sup> m</p>
-          <h2>The device: bits that make the atoms that make bits</h2>
-          <p>Somewhere between the cell and the hand sits the most precise thing humans manufacture: the chip. A modern processor is a city of billions of switches, patterned with features a few tens of nanometres wide across a silicon wafer thirty centimetres across. Lithography is the purest case of bits creating atoms at industrial volume, and it closes a strange circle, because the output is the hardware that runs the next round of design.</p>
-          <p>The same rung holds sensors, batteries, medical implants and printed parts. Here the problem is no longer whether an object can be made but whether it can be made the same way a billion times. The bottleneck is yield and tolerance, and the loop is slow: a new process can take months to move from design to measured wafer. Intelligence pays off here mostly by finding defects earlier and wasting fewer turns.</p>
+          <p class="mag">10<sup>&minus;2</sup> m &middot; The device</p>
+          <h2>Bits make the atoms that make more bits.</h2>
+          <p>This is the scale of chips, sensors and batteries, the most precise things humans make. A computer chip holds billions of tiny switches, and its design starts as pure software. Here bits create the atoms that then run more bits. The challenge is not building something once; it is building it perfectly a billion times.</p>
+          <p class="take"><span class="mono">Thesis</span> At the device scale, bits and atoms feed each other in a loop. The value goes to whoever can make things precisely, cheaply and at volume.</p>
         </section>
 
         <section class="scale" id="s-body">
-          <p class="mag">10<sup>0</sup> m</p>
-          <h2>The body: the scale we live in is the hardest</h2>
-          <p>At our own size, physics becomes contact. Things slip, stick, deform and push back. Researchers noticed long ago that what humans find hard, such as chess and calculus, computers found easy, while what any toddler does, like picking up a sock, was brutally hard for machines. That observation, known as Moravec's paradox, describes this rung exactly.</p>
-          <p>The reason is data. Language models had the internet to learn from; there is no internet of touch. Every grasp has to be collected from a real robot or a simulation, and simulations get friction and softness slightly wrong in ways a robot notices instantly. This is also the only rung where the loop cannot be slow. A hand has to correct itself in milliseconds or the cup is on the floor.</p>
-          <p>So the body scale inverts the atomic one. Actuators are plentiful and cheap; what is scarce is experience. The companies that win here will be the ones that find ways to gather physical experience as cheaply as the web gathered text.</p>
+          <p class="mag">10<sup>0</sup> m &middot; The body</p>
+          <h2>Robots lack experience, not intelligence.</h2>
+          <p>This is our own scale, and the hardest one for machines. A robot can understand language and recognise almost anything, yet still struggle to fold a shirt or pick up an egg. AI learned language from the entire internet, but there is no internet of touch. Robots have to learn from real experience, one task at a time.</p>
+          <p class="take"><span class="mono">Thesis</span> At human scale, the value goes to whoever puts the most machines into real work first, because every hour of work makes the next robot better.</p>
         </section>
 
-        <section class="scale" id="s-site">
-          <p class="mag">10<sup>3</sup> m</p>
-          <h2>The site: physics hides behind logistics</h2>
-          <p>Zoom out to a factory, a farm, a hospital or a city block and the physics recedes behind flows: queues, inventories, schedules, traffic. This is the rung where software first learned to move matter, by dispatching a car or routing a parcel through a warehouse. Bits already shift atoms here, and they do it well.</p>
-          <p>What limits progress at this scale is rarely the model. It is coordination: permits, contracts, unions, insurers and the plain fact that a building cannot be reverted like a bad commit. The loop runs from days for a warehouse schedule to years for a power line. The intelligence that matters most here is the kind that persuades many independent parties to act together.</p>
+        <section class="scale" id="s-city">
+          <p class="mag">10<sup>3</sup> m &middot; The city</p>
+          <h2>The hard part is people, not physics.</h2>
+          <p>At the scale of factories, buildings and cities, the technology often already works. Software already moves taxis, parcels and food. What slows things down is people: rules, permits, contracts and old habits. A building cannot be undone like a bad software update.</p>
+          <p class="take"><span class="mono">Thesis</span> At city scale, bits to atoms is a problem of coordination, not technology. The value goes to whoever can bring many parties together and get paid for the results they deliver.</p>
         </section>
 
         <section class="scale" id="s-planet">
-          <p class="mag">10<sup>7</sup> m</p>
-          <h2>The planet: we can predict far better than we can steer</h2>
-          <p>At the scale of the Earth the governing physics is fluid dynamics, chaotic and coupled: air, ocean, ice and carbon. Here bits have made a startling leap. Machine-learned weather models, trained on decades of reanalysed observations, now match or beat leading physics-based forecasts on many measures while running in minutes on a single machine.</p>
-          <p>Action is another matter. We barely act on this rung on purpose. The electricity grid is the closest thing we have to a machine operated at planetary scale, and balancing it second by second against weather-driven supply is becoming one of the defining control problems of the decade. Elsewhere, the loop between seeing a change and steering it is measured in decades and policy cycles. At this scale sensing has raced ahead and action trails far behind.</p>
+          <p class="mag">10<sup>7</sup> m &middot; The planet</p>
+          <h2>We can predict more than we can steer.</h2>
+          <p>At the largest scale, AI weather models now rival traditional forecasts at a fraction of the computing power. We can see what is coming better than ever. But acting on it, by balancing the power grid, managing water or adapting farms, is slow and difficult.</p>
+          <p class="take"><span class="mono">Thesis</span> At planetary scale, bits have made us better at predicting than at steering. The value goes to whoever connects prediction to real action: a price, a trade or a decision.</p>
         </section>
 
-        <section class="scale" id="s-pattern">
-          <p class="mag">&#8597;</p>
-          <h2>The pattern: the bottleneck moves as you zoom</h2>
-          <p>Laid side by side, the rungs tell a consistent story. At the smallest scales we can now design far faster than we can make, so the work is building hands: automated labs, faster synthesis, better assays. In the middle, actuators are abundant but experience is scarce, so the work is gathering data from the physical world. At the largest scales we can sense and forecast better than we can coordinate, so the work is institutional as much as technical.</p>
-
-          <div class="ladder" role="region" aria-label="Summary of scales" tabindex="0">
-            <table>
-              <thead><tr><th scope="col">Scale</th><th scope="col">What rules</th><th scope="col">Loop closes in</th><th scope="col">Scarce resource</th></tr></thead>
-              <tbody>
-                <tr><th scope="row">Atom</th><td>Quantum mechanics</td><td>Hours&ndash;days</td><td>Synthesis</td></tr>
-                <tr><th scope="row">Molecule</th><td>Heat and motion</td><td>Weeks</td><td>Assays in context</td></tr>
-                <tr><th scope="row">Cell</th><td>Regulation and noise</td><td>Weeks&ndash;months</td><td>Live measurement</td></tr>
-                <tr><th scope="row">Device</th><td>Precision and yield</td><td>Months</td><td>Repeatability</td></tr>
-                <tr><th scope="row">Body</th><td>Contact and friction</td><td>Milliseconds</td><td>Physical experience</td></tr>
-                <tr><th scope="row">Site</th><td>Flows and queues</td><td>Days&ndash;years</td><td>Coordination</td></tr>
-                <tr><th scope="row">Planet</th><td>Fluids and chaos</td><td>Decades</td><td>The ability to steer</td></tr>
-              </tbody>
-            </table>
-          </div>
-
-          <p>Clock speed matters as much as the bottleneck. Intelligence compounds where the loop is fast, because each turn teaches the next. That is why so much of the energy at the edges of this ladder goes into compressing time: a lab that runs overnight instead of over a semester, a cell that can be watched instead of sacrificed, a forecast that updates hourly instead of daily. Shortening the loop is often worth more than a smarter model.</p>
-          <p>The last lesson comes from the film itself. The Eames camera moves smoothly from one power of ten to the next; our tools do not. Each rung has its own models, its own journals and its own specialists, and the handoffs between them are where value leaks away. Yet the outcomes we care about cross scales all the time. The arrangement of atoms in a cathode sets the cost of a battery, which sets the price of a car, which reshapes the load on a grid. A single change in how a protein folds can become a drug, then a line in a hospital budget.</p>
-          <p>Software scaled by ignoring scale. The next era will scale by respecting it, and by joining the rungs together. The most interesting founders we meet tend to stand on a seam between two powers of ten, fluent in both. So these are the questions we bring to every dialogue: Which scale are you working at? How fast does your loop close? Where is the bottleneck, and which neighbouring rung is it about to move to?</p>
-          <p class="sign mono">Rarearth</p>
+        <section class="scale" id="s-end">
+          <p class="mag">Conclusion</p>
+          <h2>The bottleneck moves as you zoom.</h2>
+          <p>At the smallest scales, we can imagine more than we can make. In the middle, we have the machines but not the experience. At the largest scales, we can see more than we can act on. Wherever the bottleneck sits, the value sits with it.</p>
+          <p>Software ate the world by ignoring scale. The next great companies will be built by those who understand it. So when you look at any technology, don't just ask whether it is bits or atoms. Ask which power of ten it lives at, what is hard there, and who is solving it.</p>
         </section>
       </div>
     </div>
